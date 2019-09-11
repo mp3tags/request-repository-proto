@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+// protoc --go_out=plugins=grpc:. *.proto
+
+package request.repository;
+
+import "request.proto";
+import "google/protobuf/empty.proto";
+
+service RequestRepositoryService {
+    rpc CreateRequest(CreateRequestParams) returns (google.protobuf.Empty) {}
+    rpc ListRequests(ListRequestsParams) returns (ListRequestsResponse) {}
+}

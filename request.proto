@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package request.repository;
+
+import "google/protobuf/timestamp.proto";
+
+message Request {
+    int32 id = 1;
+    google.protobuf.Timestamp created_at = 2;
+    string user_uuid = 3;
+    string user_ip = 4;
+    string url = 5;
+    string data = 6;
+}
+
+message CreateRequestParams {
+    google.protobuf.Timestamp created_at = 1;
+    string user_uuid = 2;
+    string user_ip = 3;
+    string url = 4;
+    string data = 5;
+}
+
+message ListRequestsParams {
+    int32 Limit = 1;
+    int32 Offset = 2;
+}
+
+message ListRequestsResponse {
+    repeated Request requests = 1;
+    int32 total = 2;
+}
